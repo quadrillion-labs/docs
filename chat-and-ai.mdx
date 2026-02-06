@@ -1,0 +1,93 @@
+---
+title: Chat & AI
+description: "Talk to Qualia in plain English to analyze data, write code, and run experiments."
+---
+
+The chat panel is how you interact with Qualia. Describe what you want in natural language and Qualia writes code, runs it, and shows you the results.
+
+## Basics
+
+Type a message in the chat input at the bottom of the panel. Qualia will:
+
+1. Read your message and understand what you want
+2. Look at the current state of your notebook for context
+3. Write and execute code cells to accomplish your goal
+4. Show results (plots, tables, text) inline in the notebook
+
+You always see the code that runs. Nothing happens behind the scenes — every action appears as a notebook cell you can inspect and edit.
+
+Qualia maintains conversation history, so you can refer back to earlier results, refine approaches, and build on prior work naturally.
+
+## Things you can ask Qualia to do
+
+### Explore and clean data
+- *"Load sales_data.csv and show me the first 10 rows"*
+- *"What's the distribution of the price column? Show me a histogram"*
+- *"Remove duplicates and fill missing values in the age column with the median"*
+- *"Give me summary statistics grouped by region"*
+
+### Build visualizations
+- *"Plot a scatter matrix of all numeric columns"*
+- *"Show me daily revenue as a time series with a 7-day moving average"*
+- *"Create a heatmap of the correlation matrix"*
+- *"Make a bar chart comparing accuracy across the three models"*
+
+### Train and evaluate models
+- *"Train a gradient boosted classifier on this data"*
+- *"Compare random forest vs. logistic regression with 5-fold cross-validation"*
+- *"Show me feature importances and the ROC curve"*
+- *"Tune the learning rate and max depth using grid search"*
+
+### Work with files and the shell
+- *"Install scikit-learn and xgboost"*
+- *"What files are in the data/ directory?"*
+- *"Run the preprocessing script at scripts/clean.py"*
+- *"Search the codebase for where the model is saved"*
+
+### Research and look things up
+- *"Search the web for the latest scikit-learn docs on HistGradientBoosting"*
+- *"What's the standard approach for handling class imbalance?"*
+
+<Info>
+  Web search can be enabled in **Settings**. When active, Qualia can look up documentation and references during your conversation.
+</Info>
+
+## Attaching context
+
+You can attach specific context to your messages so Qualia knows exactly what you're referring to:
+
+- **Cells**: Select one or more notebook cells to include as context. Qualia sees both the code and its output.
+- **Files**: Attach files from your filesystem for Qualia to read.
+- **Table selections**: Select rows or columns from a data table and attach the selection.
+
+This is useful when you want Qualia to focus on a specific piece of your work rather than the whole notebook.
+
+## Custom instructions
+
+You can give Qualia persistent instructions that apply to every conversation:
+
+1. Open **Settings**
+2. Go to **Custom Instructions**
+3. Write guidelines for how Qualia should behave
+
+For example:
+- *"Always use polars instead of pandas"*
+- *"Use PyTorch, not TensorFlow"*
+- *"Follow PEP 8 style strictly"*
+- *"When training models, always set a random seed for reproducibility"*
+
+Qualia also ships with preset instructions for common domains:
+
+| Preset | Focus |
+|--------|-------|
+| **Quantitative Finance** | Backtesting, risk management, statistical testing |
+| **Biochemistry** | Cheminformatics, compound analysis, therapeutic targets |
+| **Software Engineering** | Clean code, testing, maintainability |
+
+You can select one preset per category (company, team, personal) and they stack together.
+
+## Code autocomplete
+
+As you type in code cells, Qualia offers AI-powered autocomplete suggestions. These appear inline and you can accept them with Tab.
+
+Autocomplete uses the notebook context — nearby cells and their outputs — to make relevant suggestions. You can pick which model powers autocomplete in **Settings > Models**.

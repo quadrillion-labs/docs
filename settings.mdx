@@ -1,0 +1,54 @@
+---
+title: Settings
+description: "Configure models, kernels, custom instructions, and integrations."
+---
+
+Open Settings by clicking the gear icon in the bottom-left corner of the sidebar.
+
+## Models
+
+### Default model
+The model used for chat and code generation. Switch between providers and models at any time.
+
+### Subagent model
+The model used when an agent spawns sub-agents. You might want a faster, cheaper model here for parallel work.
+
+### Autocomplete model
+Powers inline code completions as you type. A smaller, faster model usually works best.
+
+## Editor
+
+### Default kernel
+Select which Jupyter kernel Qualia uses for new notebooks. If you have multiple Python environments (conda, virtualenv, etc.), select the one you want here.
+
+Qualia validates that the selected kernel is installed and available. If it's not, you'll see a warning.
+
+## AI behavior
+
+### Web search
+Enable or disable web search. When active, Qualia can look up documentation and references during conversations.
+
+### Agent confirmation
+When enabled, agents ask for approval before executing actions. Disable for a faster, more autonomous experience.
+
+### Custom instructions
+Persistent guidelines that apply to every conversation. Write up to 7,500 characters of instructions.
+
+Qualia also includes preset instructions for common domains (quantitative finance, biochemistry, software engineering). Select one preset per category — they stack with your personal instructions.
+
+## Matplotlib
+
+Fine-grained control over plot appearance:
+
+| Setting | Description |
+|---------|-------------|
+| **DPI** | Plot resolution |
+| **Figure size** | Width and height in inches |
+| **Colormap** | Default colormap for heatmaps and continuous scales |
+| **Color cycle** | Colors used for plot lines and bars |
+| **Font** | Font family and size |
+| **Line width** | Default line thickness |
+| **Grid** | Show or hide gridlines |
+| **Export DPI/format** | Settings for saved figures |
+
+You can create custom color schemes and save them for reuse.

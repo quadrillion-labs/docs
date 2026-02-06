@@ -1,0 +1,76 @@
+---
+title: Agents
+description: "Run parallel experiments, spawn sub-agents, and let Qualia work autonomously."
+---
+
+Qualia's agent system lets you go beyond single-threaded conversations. You can run multiple experiments in parallel, delegate sub-tasks to independent agents, and let Qualia work autonomously for hours while you do something else.
+
+## Starting an agent
+
+Click the New Agent button in the top left.
+
+## Parallel agents
+
+The biggest time sink in research is sequential experimentation — you try one thing, wait, check results, then try the next. Qualia eliminates that by running multiple agents in parallel.
+
+### Example: model comparison
+
+Ask Qualia:
+
+> *"Compare three approaches: (1) random forest with default hyperparameters, (2) XGBoost with early stopping, and (3) a small neural network. Use 5-fold cross-validation for each. Run them in parallel."*
+
+Qualia spawns three agents, each working on one approach simultaneously. When they finish, you can compare results side by side.
+
+### Example: hyperparameter sweep
+
+> *"Try learning rates of 0.001, 0.01, and 0.1 with the current model. Train each for 50 epochs and compare validation loss curves."*
+
+### Example: feature engineering
+
+> *"Test three feature sets: (1) just the raw numeric columns, (2) with polynomial features, (3) with target encoding on categoricals. See which gives the best F1 score."*
+
+### Managing agents
+
+The **Agents sidebar** (chat bubble icon) shows all your agents:
+
+- **Status indicators**: Running (spinner), completed (checkmark), paused, stopped, or waiting
+- **Hierarchy view**: See parent-child relationships between agents and sub-agents
+- **Actions**: Pause, resume, stop, or delete any agent
+
+## Autonomous runs
+
+You can set agents to **Infinity** independence and let them run for hours without intervention.
+
+### How it works
+
+1. Describe a research direction: *"Explore different architectures for this timeseries forecasting problem. Try at least 5 approaches and report the best."*
+2. Set independence to **Infinity**
+3. Qualia works autonomously — training models, testing variations, iterating on promising leads
+4. When it finds something interesting or finishes, it reports back
+
+### Slack integration
+
+Connect Slack in **Settings** to get updates from autonomous agents:
+
+1. Go to **Settings > Slack**
+2. Click **Connect to Slack** and authorize
+3. Select a channel for updates
+
+Autonomous agents will post progress updates and results to your Slack channel while they work. You can propose new directions directly from Slack, and Qualia will adjust its approach.
+
+## Confirmation requests
+
+When an agent wants to do something potentially risky — like installing a package, running a destructive shell command, or making an irreversible change — it pauses and asks for your confirmation.
+
+You'll see a confirmation dialog with:
+- What the agent wants to do
+- Why it wants to do it
+- Options to approve, deny, or modify the action
+
+Agents at **Infinity** independence skip confirmations entirely, which is why that level is intended for trusted background work.
+
+## Todo tracking
+
+Agents create and maintain todo lists as they work through complex tasks. You can see the current todo list in the chat panel — items are marked as pending, in progress, or completed as the agent progresses.
+
+This gives you visibility into what the agent is doing and how far along it is, even during long autonomous runs.

@@ -1,0 +1,96 @@
+---
+title: Notebooks
+description: "A full notebook IDE with code execution, visualizations, terminal, and search."
+---
+
+Qualia is a complete Jupyter-compatible notebook IDE. Everything you create is saved as standard `.ipynb` files that work in JupyterLab, VS Code, or any other notebook tool.
+
+## Creating and managing notebooks
+
+- Click **New Notebook** in the Files sidebar to create a notebook
+- Open existing `.ipynb` files by clicking them in the file browser
+- Open multiple notebooks in tabs and switch between them
+- Rename, duplicate, or delete files by right-clicking in the sidebar
+- **Reveal in Finder/Explorer**: right-click a file to open its location on disk
+
+Recently opened notebooks appear at the top of the Files sidebar for quick access.
+
+## Writing and running code
+
+### Cell types
+- **Code cells**: Python (or R) with syntax highlighting, bracket matching, and auto-indentation
+- **Markdown cells**: Rich text with LaTeX math support via KaTeX
+
+### Running cells
+
+| Shortcut | Action |
+|----------|--------|
+| **Shift+Enter** | Run cell and move to the next one |
+| **Cmd/Ctrl+Enter** | Run cell and stay on it |
+| **Alt+Enter** | Run cell and insert a new cell below |
+
+You can also run all cells in order, or run a selection of cells.
+
+### Cell operations
+
+In **command mode** (press Escape first):
+
+| Key | Action |
+|-----|--------|
+| **A** | Insert cell above |
+| **B** | Insert cell below |
+| **D, D** | Delete cell (press D twice) |
+| **M** | Convert to markdown |
+| **Y** | Convert to code |
+| **C** | Copy cell |
+| **V** | Paste cell below |
+| **Shift+M** | Merge selected cells |
+| **Shift+L** | Toggle line numbers |
+| Arrow keys or **J/K** | Navigate between cells |
+
+Press **Enter** to go back to edit mode.
+
+### Outputs
+
+Qualia renders all standard Jupyter output types:
+- Text (print statements, return values)
+- Tables (pandas DataFrames render as formatted tables)
+- Plots (matplotlib, plotly, seaborn)
+- Images
+- Interactive widgets (ipywidgets)
+- Error tracebacks with syntax highlighting
+
+## Built-in terminal
+
+Qualia includes an integrated terminal. Open it to run shell commands without leaving the app.
+
+## Search
+
+### Find in notebook
+Press **Cmd/Ctrl+F** to search within the current notebook. Supports:
+- Case-sensitive matching
+- Whole-word matching
+- Regular expressions
+
+### Search across files
+The Search sidebar (magnifying glass icon) searches across all files in your workspace using ripgrep for fast full-text search.
+
+## File export
+
+Export notebooks as standalone files with all variable references resolved. This is useful for sharing your work — the exported notebook runs without needing Qualia.
+
+## Matplotlib customization
+
+Qualia gives you fine-grained control over how plots look:
+
+- **DPI and figure size**: Set resolution and dimensions
+- **Color cycles**: Choose from built-in palettes (including Qualia's own) or create custom ones
+- **Colormaps**: Pick defaults for heatmaps and continuous color scales
+- **Typography**: Set font family and size
+- **Grid and line width**: Control plot styling
+
+Configure all of this in **Settings > Matplotlib**. Changes apply to all new plots.
+
+## Tags
+
+Organize your notebooks with tags. Add tags from the cell toolbar to categorize cells by purpose (e.g., "preprocessing", "model-v2", "visualization"). Tags are saved in the notebook metadata and persist across sessions.
