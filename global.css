@@ -1,0 +1,8 @@
+/* Funkis B.1.2 variable font settings */
+h1, h2, h3, h4, h5, h6 {
+  font-variation-settings:
+    "shrp" 100,
+    "inkt" 100,
+    "term" 50,
+    "dots" 0;
+}
