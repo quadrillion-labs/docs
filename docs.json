@@ -3,11 +3,32 @@
   "theme": "mint",
   "name": "Qualia Docs",
   "colors": {
-    "primary": "#123dff",
-    "light": "#667fff",
-    "dark": "#0d2ecc"
+    "primary": "#66349a",
+    "light": "#8b5fc4",
+    "dark": "#4a2070"
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "background": {
+    "decoration": "gradient",
+    "color": {
+      "light": "#fffaff",
+      "dark": "#1a1025"
+    }
   },
   "favicon": "/favicon.png",
+  "fonts": {
+    "heading": {
+      "family": "Funkis",
+      "weight": 150,
+      "source": "/fonts/FunkisABCVariable.woff2",
+      "format": "woff2"
+    },
+    "body": {
+      "family": "IBM Plex Sans"
+    }
+  },
   "navigation": {
     "tabs": [
       {
