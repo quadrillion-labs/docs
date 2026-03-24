@@ -1,13 +1,23 @@
 ---
 title: Agents
-description: "Run parallel experiments, spawn sub-agents, and let Qualia work autonomously."
+description: "Run parallel experiments and delegate work to independent agents."
 ---
 
-Qualia's agent system lets you go beyond single-threaded conversations. You can run multiple experiments in parallel, delegate sub-tasks to independent agents, and let Qualia work autonomously for hours while you do something else.
+Qualia's agent system lets you go beyond single-threaded conversations. You can run multiple experiments in parallel, delegate sub-tasks to independent agents, and scale your research.
+
+## What is an agent?
+
+An agent is a chat session that can work independently. Each agent:
+
+- Has its own conversation history
+- Can be assigned [tasks](/tasks)
+- Can attach to a notebook to write and run research code
+
+Agents appear in the **Agents sidebar** (chat bubble icon in the activity bar).
 
 ## Starting an agent
 
-Click the New Agent button in the top left.
+Click the **New Agent** button in the top left to create a new agent. You can also create agents from within a conversation when you need parallel work.
 
 ## Parallel agents
 
@@ -19,7 +29,7 @@ Ask Qualia:
 
 > *"Compare three approaches: (1) random forest with default hyperparameters, (2) XGBoost with early stopping, and (3) a small neural network. Use 5-fold cross-validation for each. Run them in parallel."*
 
-Qualia spawns three agents, each working on one approach simultaneously. When they finish, you can compare results side by side.
+Qualia creates three agents, each working on one approach simultaneously. When they finish, you can compare results side by side.
 
 ### Example: hyperparameter sweep
 
@@ -29,48 +39,51 @@ Qualia spawns three agents, each working on one approach simultaneously. When th
 
 > *"Test three feature sets: (1) just the raw numeric columns, (2) with polynomial features, (3) with target encoding on categoricals. See which gives the best F1 score."*
 
-### Managing agents
+## The Agents sidebar
 
-The **Agents sidebar** (chat bubble icon) shows all your agents:
+The **Agents sidebar** shows all your agents:
 
 - **Status indicators**: Running (spinner), completed (checkmark), paused, stopped, or waiting
-- **Hierarchy view**: See parent-child relationships between agents and sub-agents
-- **Actions**: Pause, resume, stop, or delete any agent
+- **Hierarchy view**: See parent-child relationships between agents
+- **Time grouping**: Agents grouped by when they were created
+- **Pending confirmation**: Agents waiting for approval (when confirmation is required)
 
-## Autonomous runs
+### Agent actions
 
-You can set agents to **Infinity** independence and let them run for hours without intervention.
+From the sidebar, you can:
 
-### How it works
+- **Open**: Jump to an agent's conversation
+- **Pause/Resume**: Temporarily stop or continue work
+- **Stop**: Permanently stop the agent
+- **Delete**: Remove the agent and its history
 
-1. Describe a research direction: *"Explore different architectures for this timeseries forecasting problem. Try at least 5 approaches and report the best."*
-2. Set independence to **Infinity**
-3. Qualia works autonomously — training models, testing variations, iterating on promising leads
-4. When it finds something interesting or finishes, it reports back
+## Agent communication
 
-### Slack integration
+Agents can communicate with each other:
 
-Connect Slack in **Settings** to get updates from autonomous agents:
+- **Message agent**: One agent can send a message to another
+- **Agent links**: Click to navigate between related agents in chat
+- **Shared knowledge**: Agents in the same project share the [Knowledge System](/knowledge)
 
-1. Go to **Settings > Slack**
-2. Click **Connect to Slack** and authorize
-3. Select a channel for updates
+## Agent confirmation
 
-Autonomous agents will post progress updates and results to your Slack channel while they work. You can propose new directions directly from Slack, and Qualia will adjust its approach.
+When an agent wants to create a new parallel agent, it can require your approval first. This is controlled in [Settings > AI](/settings/ai):
 
-## Confirmation requests
+- **Enabled**: New agents wait for you to approve
+- **Disabled**: Agents start immediately
 
-When an agent wants to do something potentially risky — like installing a package, running a destructive shell command, or making an irreversible change — it pauses and asks for your confirmation.
+When enabled, pending agents show in the Agents sidebar and you can approve or deny them.
 
-You'll see a confirmation dialog with:
-- What the agent wants to do
-- Why it wants to do it
-- Options to approve, deny, or modify the action
+## Integration with tasks
 
-Agents at **Infinity** independence skip confirmations entirely, which is why that level is intended for trusted background work.
+Agents work on [tasks](/tasks):
 
-## Todo tracking
+- Tasks can be assigned to specific agents
+- Agents work through their task queue
+- You can reassign tasks between agents in the [Gantt view](/tasks)
 
-Agents create and maintain todo lists as they work through complex tasks. You can see the current todo list in the chat panel — items are marked as pending, in progress, or completed as the agent progresses.
+See [Tasks](/tasks) for details on the task system.
 
-This gives you visibility into what the agent is doing and how far along it is, even during long autonomous runs.
+## Autonomous work
+
+For extended independent work, see [Autonomous Mode](/autonomous-mode). With independence set to **Infinity**, agents work without interruption and report progress via Slack.

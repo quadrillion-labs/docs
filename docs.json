@@ -35,12 +35,42 @@
         "tab": "Guides",
         "groups": [
           {
-            "group": "Get Started",
+            "group": "Welcome",
             "pages": ["index", "getting-started"]
           },
           {
-            "group": "Using Qualia",
-            "pages": ["chat-and-ai", "notebooks", "agents", "settings"]
+            "group": "Core Features",
+            "pages": ["chat-and-ai", "notebooks", "terminal", "writeups"]
+          },
+          {
+            "group": "Agents & Tasks",
+            "pages": ["agents", "tasks", "autonomous-mode"]
+          },
+          {
+            "group": "Knowledge System",
+            "pages": ["knowledge", "q-vars"]
+          },
+          {
+            "group": "Customization & Settings",
+            "pages": [
+              "settings/overview",
+              "settings/general",
+              "settings/api-keys",
+              "settings/editor",
+              "settings/ai",
+              "settings/appearance",
+              "settings/matplotlib",
+              "settings/tags",
+              "settings/slack",
+              "settings/data-management",
+              "rules",
+              "skills",
+              "mcp-integrations"
+            ]
+          },
+          {
+            "group": "Interface",
+            "pages": ["search", "tabs", "kernel-toolbar"]
           }
         ]
       }

@@ -1,0 +1,63 @@
+---
+title: Writeups
+description: "Create structured research documents with .qua files."
+---
+
+Writeups are research documents stored as `.qua` files. Unlike notebooks which focus on code execution, writeups are for prose — synthesizing findings, documenting conclusions, and building narratives around your research.
+
+## Creating a writeup
+
+1. Click **New File** in the Files sidebar
+2. Select **Research Writeup (.qua)**
+3. Choose a location and filename
+
+Writeups open in a rich text editor with formatting tools, headings, and structured blocks.
+
+## The editor
+
+The writeup editor uses a block-based format:
+
+- **Headings**: Multiple levels for document structure
+- **Paragraphs**: Standard text blocks
+- **Code blocks**: Syntax-highlighted code snippets
+- **Lists**: Bulleted and numbered lists
+
+Use the toolbar or keyboard shortcuts to format text:
+
+| Shortcut | Action |
+|----------|--------|
+| **Cmd/Ctrl+B** | Bold |
+| **Cmd/Ctrl+I** | Italic |
+| **Cmd/Ctrl+Shift+H** | Toggle heading |
+
+## Autosave
+
+Writeups save automatically as you type:
+
+- Changes are saved after a brief pause (~800ms)
+- No manual save required
+- The file on disk always reflects your latest edits
+
+## When to use writeups vs notebooks
+
+| Use case | Format |
+|----------|--------|
+| Running code, exploring data | Notebook (`.ipynb`) |
+| Documenting findings, writing reports | Writeup (`.qua`) |
+| Reproducible analysis | Notebook |
+| Synthesizing conclusions across experiments | Writeup |
+
+Both formats live in the same project and can reference each other. Use notebooks for the work itself and writeups for the story you tell about it.
+
+## File format
+
+`.qua` files are JSON documents containing:
+
+- **Title**: The document heading
+- **Blocks**: An array of content blocks (headings, paragraphs, code)
+
+The format is specific to Qualia but human-readable if you need to inspect files directly.
+
+## Future features
+
+In the near future, writeups will be integrated with various Qualia features, including agents, tasks, and knowledge.

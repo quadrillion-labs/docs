@@ -1,0 +1,118 @@
+---
+title: Rules
+description: "Create persistent instructions that guide AI behavior across all conversations."
+---
+
+Rules are persistent instructions that apply to your Qualia sessions. Unlike one-off prompts, rules are always active (or invoked on demand), ensuring consistent AI behavior across all your work.
+
+## What are rules?
+
+A rule is a set of instructions stored as a file:
+
+- **Name**: Identifier used to reference the rule
+- **Description**: What the rule does (optional)
+- **Body**: The actual instructions (up to 20,000 characters)
+- **Type**: When the rule applies
+
+Rules live in Qualia's configuration directory and persist across sessions.
+
+## Rule types
+
+### Always rules
+
+Applied automatically to every conversation:
+
+- Loaded at the start of each generation
+- Combined with other always rules
+- No action needed to activate
+
+Use always rules for:
+- Coding style preferences ("Always use type hints")
+- Domain conventions ("Use SI units for all measurements")
+- Safety guidelines ("Never delete files without confirmation")
+
+### Manual rules
+
+Invoked explicitly when needed:
+
+- Not automatically loaded
+- Activated with `@rule:rule-name` in chat
+- Useful for context-specific guidance
+
+Use manual rules for:
+- Project-specific conventions
+- Specialized workflows
+- Instructions that only apply sometimes
+
+## Creating rules
+
+1. Go to **Settings > AI Assistant**
+2. Expand the **Rules** section
+3. Click **Create Rule**
+4. Enter:
+   - **Name**: Lowercase with hyphens (e.g., `python-style`)
+   - **Description**: Brief explanation
+   - **Body**: The instructions
+   - **Type**: Always or Manual
+
+## Using manual rules
+
+Invoke a manual rule by typing `@rule:` followed by the rule name in your chat message:
+
+> *"@rule:data-analysis Analyze this dataset and find anomalies"*
+
+The rule's instructions are included in that message's context.
+
+## Workspace rules
+
+Qualia also recognizes rules files in your workspace root:
+
+- **CLAUDE.md**: Instructions in Claude's standard format
+- **AGENTS.md**: Agent-specific guidance
+
+If present, these are included automatically like always rules. This lets you version-control project-specific instructions alongside your code.
+
+## Importing rules
+
+Import rules from other tools:
+
+### From Cursor
+
+1. Go to **Settings > AI Assistant > Rules**
+2. Click **Import from Cursor**
+3. Rules from `~/.cursor/rules/` are imported
+
+Cursor rules (`.mdc` files) include frontmatter with globs for file-specific matching. Imported rules preserve this metadata.
+
+### From Claude Code
+
+1. Click **Import from Claude Code**
+2. Rules from `~/.claude/rules/` are imported
+
+## Rule organization
+
+For complex projects, consider:
+
+- One **always rule** for global preferences
+- **Manual rules** for different contexts (data analysis, model training, visualization)
+- **Workspace rules** (CLAUDE.md) for project-specific conventions
+
+<Info>
+  Rules stack — an always rule plus a manual rule plus workspace rules all apply together when invoked.
+</Info>
+
+## Viewing rule files
+
+Click **Reveal Rules Folder** in Settings to open the rules directory in your file manager. Each rule is stored in its own folder with a `RULE.md` file.
+
+You can edit rules directly on disk if you prefer — changes are picked up automatically.
+
+## Best practices
+
+**Be specific**: Vague rules like "write good code" don't help. Specific rules like "always use TQDM in for loops" and "add docstrings to all functions" give clear guidance.
+
+**Keep rules focused**: One rule per concern. A rule about Python style shouldn't also cover data visualization preferences.
+
+**Test rules**: After creating a rule, try a few prompts to verify it's being followed.
+
+**Review periodically**: As your workflow evolves, update rules to match. Outdated rules can cause friction.

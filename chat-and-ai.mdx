@@ -18,7 +18,7 @@ You always see the code that runs. Nothing happens behind the scenes — every a
 
 Qualia maintains conversation history, so you can refer back to earlier results, refine approaches, and build on prior work naturally.
 
-## Things you can ask Qualia to do
+## Basic things you can ask Qualia to do
 
 ### Explore and clean data
 - *"Load sales_data.csv and show me the first 10 rows"*
@@ -49,45 +49,86 @@ Qualia maintains conversation history, so you can refer back to earlier results,
 - *"What's the standard approach for handling class imbalance?"*
 
 <Info>
-  Web search can be enabled in **Settings**. When active, Qualia can look up documentation and references during your conversation.
+  Web search can be enabled in [Settings > AI](/settings/ai). When active, Qualia can look up documentation and references during your conversation.
 </Info>
+
+## More autonomous exploration
+
+For open-ended research, give Qualia broader goals and let it explore:
+
+### Dataset investigation
+- *"Explore this dataset thoroughly — check for anomalies, correlations, and anything interesting"*
+- *"Find the best features for predicting churn and explain why they matter"*
+- *"Investigate why the model performs poorly on certain segments"*
+
+### Model development
+- *"Build the best classifier you can for this data — try multiple approaches and compare them"*
+- *"This model is overfitting. Diagnose the problem and fix it"*
+- *"Optimize this pipeline for inference speed without sacrificing too much accuracy"*
+
+### Research questions
+- *"What's causing the spike in errors after March 2024? Investigate and report back"*
+- *"Find a good forecasting approach for this time series data"*
+- *"Review this codebase and suggest performance improvements"*
+
+These prompts work best with higher [curiosity and independence](#research-style) settings, allowing Qualia to explore multiple angles and make decisions without asking at every step.
 
 ## Attaching context
 
 You can attach specific context to your messages so Qualia knows exactly what you're referring to:
 
 - **Cells**: Select one or more notebook cells to include as context. Qualia sees both the code and its output.
-- **Files**: Attach files from your filesystem for Qualia to read.
+- **Files**: Attach files and images from your filesystem for Qualia to read.
 - **Table selections**: Select rows or columns from a data table and attach the selection.
 
 This is useful when you want Qualia to focus on a specific piece of your work rather than the whole notebook.
 
-## Custom instructions
+## Model selection
 
-You can give Qualia persistent instructions that apply to every conversation:
+Choose which AI model powers your conversation:
 
-1. Open **Settings**
-2. Go to **Custom Instructions**
-3. Write guidelines for how Qualia should behave
+1. Click the model name in the chat header
+2. Select from available models
+3. Star models to add them to your favorites
 
-For example:
-- *"Always use polars instead of pandas"*
-- *"Use PyTorch, not TensorFlow"*
-- *"Follow PEP 8 style strictly"*
-- *"When training models, always set a random seed for reproducibility"*
+Favorite models appear first for quick access. You can drag to reorder your favorites.
 
-Qualia also ships with preset instructions for common domains:
+### Context window
 
-| Preset | Focus |
-|--------|-------|
-| **Quantitative Finance** | Backtesting, risk management, statistical testing |
-| **Biochemistry** | Cheminformatics, compound analysis, therapeutic targets |
-| **Software Engineering** | Clean code, testing, maintainability |
+The token usage indicator shows how much of the model's context window you're using. As your conversation grows longer, this fills up. If you hit the limit, your chat will be automatically summarized (compacted) and continued. However, the agent may lose access to fully detailed information from earlier in the conversation.
 
-You can select one preset per category (company, team, personal) and they stack together.
+## Research style
+
+Adjust how Qualia approaches your requests with two settings (configurable in chat or as defaults in [Settings](/settings/ai)):
+
+### Curiosity
+
+How much Qualia explores beyond your immediate request:
+
+- **Low**: Focused on exactly what you asked
+- **Medium**: Explores related areas when relevant
+- **High**: Actively investigates tangential questions
+
+### Independence
+
+How much Qualia assumes versus asks:
+
+- **Low**: Asks for confirmation frequently
+- **Medium**: Makes routine decisions, asks about significant ones
+- **High**: Assumes most things, asks only about major choices
+- **Infinity**: Fully autonomous (see [Autonomous Mode](/autonomous-mode))
 
 ## Code autocomplete
 
 As you type in code cells, Qualia offers AI-powered autocomplete suggestions. These appear inline and you can accept them with Tab.
 
-Autocomplete uses the notebook context — nearby cells and their outputs — to make relevant suggestions. You can pick which model powers autocomplete in **Settings > Models**.
+Autocomplete uses the notebook context — nearby cells and their outputs — to make relevant suggestions. You can pick which model powers autocomplete in [Settings > Editor](/settings/editor).
+
+## Customization
+
+Qualia's behavior can be customized with:
+
+- [**Rules**](/rules): Persistent instructions that apply to every conversation (e.g., "Always use polars instead of pandas")
+- [**Skills**](/skills): Reusable workflows for specific tasks (e.g., "How to deploy to production")
+
+See the individual pages for details on creating and using these.

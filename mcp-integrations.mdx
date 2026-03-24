@@ -1,0 +1,154 @@
+---
+title: MCP Integrations
+description: "Connect external tools to Qualia using the Model Context Protocol."
+---
+
+MCP (Model Context Protocol) lets you extend Qualia with external tools. Connect services like [Slack](https://docs.slack.dev/ai/slack-mcp-server/) or [GitHub](https://github.com/github/github-mcp-server)—and Qualia can use them during your conversations.
+
+## What is MCP?
+
+MCP is a standard protocol for connecting AI assistants to external capabilities:
+
+- **Servers** provide tools (functions the AI can call)
+- **Qualia** connects to servers and exposes their tools
+- **You** control which servers are enabled and what permissions they have
+
+When you add an MCP server, Qualia can then use those tools to accomplish tasks.
+
+## Adding an MCP server
+
+1. Go to **Settings > MCP Integrations**
+2. Click **Add Server**
+3. Configure the server:
+
+### Command-based (stdio)
+
+For servers that run as local processes:
+
+- **Name**: Identifier for this server
+- **Command**: The executable to run (e.g., `npx`, `python`)
+- **Arguments**: Command-line arguments
+- **Environment variables**: Variables to set for the process
+
+### URL-based (HTTP/SSE)
+
+For servers accessible via HTTP:
+
+- **Name**: Identifier for this server
+- **URL**: The server endpoint
+- **Headers**: Authentication headers (optional)
+
+### Pasting configuration
+
+You can paste JSON configuration directly:
+
+```json
+{
+  "my-server": {
+    "command": "npx",
+    "args": ["-y", "my-mcp-server"]
+  }
+}
+```
+
+This format is compatible with Cursor's `mcp.json`, making it easy to share configurations.
+
+## Server status
+
+Each server shows its connection status:
+
+| Status | Meaning |
+|--------|---------|
+| **Connected** | Server is running and tools are available |
+| **Connecting** | Attempting to establish connection |
+| **Disconnected** | Not currently connected |
+| **Error** | Connection failed (click for details) |
+| **Disabled** | Server is configured but turned off |
+
+Use the **Enable/Disable** toggle to control whether a server should connect.
+
+## Managing tools
+
+Click a server to expand its tool list. Each tool shows:
+
+- **Name**: What the tool is called
+- **Description**: What the tool does
+- **Permission**: How confirmations are handled
+
+### Tool permissions
+
+Control how each tool runs:
+
+| Permission | Behavior |
+|------------|----------|
+| **Always** | Run without asking |
+| **Require permission** | Ask before each use |
+| **Never** | Block this tool entirely |
+
+New tools default to **Require permission**. When Qualia wants to use a tool with this setting, you'll see a confirmation dialog showing what it wants to do.
+
+You can set **Always allow** from the confirmation dialog to approve future uses.
+
+### Viewing schemas
+
+Click **Show schema** on any tool to see its input schema — the parameters it accepts and their types. This helps you understand what the tool can do.
+
+## Tool usage in chat
+
+When Qualia uses an MCP tool:
+
+1. You see the tool name and arguments
+2. For "Require permission" tools, a confirmation dialog appears
+3. After approval (or for "Always" tools), the tool executes
+4. Results appear in the conversation
+
+<Warning>
+  Only connect MCP servers you trust. Servers may access your data and chats.
+</Warning>
+
+## Refreshing tools
+
+If a server's tools change, click **Refresh tools** to rediscover them. This is useful during server development or after updates.
+
+## Configuration file
+
+MCP configuration is stored at `~/.quadrillion/mcp.json`:
+
+```json
+{
+  "mcpServers": {
+    "my-server": {
+      "command": "npx",
+      "args": ["-y", "my-mcp-server"],
+      "enabled": true,
+      "tool_permissions": {
+        "some-tool": "always"
+      }
+    }
+  }
+}
+```
+
+You can edit this file directly — changes are picked up automatically.
+
+The Settings UI suggests common servers you might want to connect.
+
+## Troubleshooting
+
+### Server won't connect
+
+- Check the command/URL is correct
+- Verify required dependencies are installed
+- Look at the error message for specifics
+
+### Tools not appearing
+
+- Click **Refresh tools**
+- Check server status is "Connected"
+- Verify the server actually provides tools
+
+### Permission issues
+
+- Tools default to "Require permission"
+- Change to "Always" for trusted, frequently-used tools
+- Use "Never" for tools you want to block

@@ -1,0 +1,108 @@
+---
+title: Knowledge System
+description: "Track claims, evidence, and evolving understanding with the Central Knowledge Graph."
+---
+
+As you work through research, you build up knowledge — conclusions from experiments, insights from analysis, facts you've verified. Qualia's Knowledge system captures this knowledge as **claims** with clear provenance back to evidence.
+
+## What are claims?
+
+A claim is a durable fact or conclusion tied to your project:
+
+- **Content**: The actual statement or finding
+- **Sources**: Evidence supporting the claim (code cells, files, other claims)
+- **Type**: How the claim was created
+- **High-level flag**: Whether it's important enough to surface to agents immediately
+
+Claims are project-scoped — they belong to a specific project and persist across sessions.
+
+## Types of claims
+
+### Notebook-captured
+
+Created automatically when code runs and captures results:
+
+- Variables marked as "required" on a task get captured
+- The claim links directly to the notebook cell that produced it
+- These claims mirror the evidence — when the cell changes, the claim is revalidated
+
+### Synthesized
+
+Written by agents to summarize understanding:
+
+- Combine multiple sources (cells, files, other claims)
+- Represent conclusions drawn from evidence
+
+<Info>
+  When an agent works on a task, it must create a synthesized claim before marking the task complete. This ensures every task produces documented knowledge.
+</Info>
+
+## High-level claims
+
+Some claims are marked as **high-level** when they represent key findings. High-level claims are:
+
+- Injected into the AI's context during generation
+- Shown prominently in the Knowledge sidebar
+- Filterable in the sidebar view
+
+This keeps agents informed of your project's most critical knowledge automatically.
+
+## The Knowledge sidebar
+
+Open the **Knowledge** sidebar from the activity bar to browse your project's claims.
+
+### Filtering and search
+
+- **Type filter**: Show only notebook-captured or synthesized claims
+- **High-level only**: Focus on key findings
+- **Search**: Find claims by content or ID
+- **Sort**: Newest/oldest, with high-level claims boosted
+
+### Viewing claims
+
+Each claim card shows:
+
+- Claim content (truncated for long claims)
+- Type indicator
+- High-level badge if applicable
+- Source count
+
+Click a claim to see full details and navigate to sources.
+
+### Views
+
+- **List view**: Claims as cards
+- **Graph view**: Visual DAG of claim relationships
+
+## Working with claims
+
+### Validation
+
+Claims can be validated against their sources:
+
+- **Validate**: Check if the claim still holds given current evidence
+- **Validate upstream**: Check this claim and all claims it depends on
+
+Validation runs a check — if sources have changed significantly, the claim may be automatically updated.
+
+### Provenance
+
+Every claim links to its sources:
+
+- **Notebook cells**: Jump to the cell that produced evidence
+- **Files**: Open the referenced file
+- **Other claims**: Navigate the claim graph
+
+This chain of evidence lets you trace any conclusion back to raw data and code.
+
+## Claims and tasks
+
+The knowledge system connects to [tasks](/tasks):
+
+- Tasks require synthesized claims for completion
+- Claims link back to the task that produced them
+- The task graph and claim graph together document your research path
+
+## Q_VARS integration
+
+When tasks pass variables to downstream tasks via [Q_VARS](/q-vars), those values become notebook-captured claims. This creates a documented chain of data flow through your project.

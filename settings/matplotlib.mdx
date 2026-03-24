@@ -1,0 +1,55 @@
+---
+title: Matplotlib Settings
+description: "Configure default plot appearance, colors, and export options."
+---
+
+Fine-grained control over how plots look. Changes apply to all new plots in your notebooks.
+
+These are only the defaults for matplotlib. These can be overridden by simply passing arguments into matplotlib plotting calls.
+
+## Display settings
+
+| Setting | Description |
+|---------|-------------|
+| **Display DPI** | Resolution for inline plots |
+| **Figure size** | Width and height in inches |
+| **Font family** | Typeface for labels and titles |
+| **Font size** | Base size for plot text |
+| **Line width** | Default thickness for plot lines |
+| **Show grid** | Display gridlines on plots |
+
+## Color settings
+
+| Setting | Description |
+|---------|-------------|
+| **Default color cycle** | Colors used for multiple data series |
+| **Default colormap** | Gradient for heatmaps and continuous scales |
+
+Qualia includes several built-in color cycles including its own palette. You can also create custom color schemes.
+
+### Creating custom color cycles
+
+1. Go to **Settings > Matplotlib**
+2. Click **Create Custom** under color cycles
+3. Add colors using hex codes or a color picker
+4. Name and save your palette
+
+Custom palettes appear in the dropdown alongside built-in options.
+
+## Export settings
+
+| Setting | Description |
+|---------|-------------|
+| **Save DPI** | Resolution for exported figures |
+| **Save format** | PNG, PDF, SVG, or JPG |
+
+These affect figures saved with `plt.savefig()` or the export button on plot outputs.
+
+## Applying changes
+
+Settings take effect for new plots. Existing plots in your notebook retain their original styling until you re-run the cells.
+
+To apply new settings to existing plots:
+
+1. Update your Matplotlib settings
+2. Re-run the cells that generate plots

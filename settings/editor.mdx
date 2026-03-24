@@ -1,0 +1,89 @@
+---
+title: Editor Settings
+description: "Configure code editing, autocomplete, and display preferences."
+---
+
+Editor settings control how code cells look and behave.
+
+## Code completion
+
+Choose how code completion works:
+
+| Mode | Behavior |
+|------|----------|
+| **Traditional** | Standard IDE completion (symbols, methods) |
+| **LM** | AI-powered completions using language models |
+| **Off** | No automatic completions |
+
+### LM autocomplete model
+
+When using LM completion, select which model powers suggestions:
+
+- Smaller, faster models work best for autocomplete
+- Model options load from `/api/autocomplete/models`
+
+AI completions consider notebook context — nearby cells and their outputs — to make relevant suggestions.
+
+## Display options
+
+### Line numbers
+
+Show or hide line numbers in code cells:
+
+- **Enabled**: Numbers appear in the left gutter
+- **Disabled**: Clean view without numbers
+
+Toggle with **Shift+L** in command mode.
+
+### Line wrapping
+
+Control how long lines display:
+
+- **Enabled**: Lines wrap to fit the cell width
+- **Disabled**: Lines extend with horizontal scroll
+
+### LaTeX rendering
+
+Enable math rendering in markdown cells:
+
+- Uses KaTeX for fast rendering
+- Supports inline (`$...$`) and block (`$$...$$`) math
+
+## Search settings
+
+### Max search results
+
+Set the upper limit for search results:
+
+- Higher values show more results
+- Very high values may slow the interface
+- Default balances completeness and performance
+
+This affects both in-document find and workspace search.
+
+## Data display
+
+### CSV rows per page
+
+When viewing CSV files, control pagination:
+
+| Setting | Use case |
+|---------|----------|
+| **100** | Quick browsing, fast loading |
+| **1,000** | Moderate datasets |
+| **10,000** | Large datasets (slower to load) |
+
+### Execution time format
+
+How cell execution times display:
+
+- **Compact**: "1.2s"
+- **Human-readable**: "1 second 234 milliseconds"
+
+Execution times appear below completed cells.
+
+## Related settings
+
+- [General settings](/settings/general) for environment configuration
+- [AI settings](/settings/ai) for AI behavior
+- [Appearance settings](/settings/appearance) for themes and layout

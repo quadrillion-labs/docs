@@ -1,0 +1,98 @@
+---
+title: General Settings
+description: "Configure Python environments, terminal shell, and language preferences."
+---
+
+General settings control your development environment and basic preferences.
+
+## Python environment
+
+Select the Python installation to use for new notebooks.
+
+**Default Python Environment** shows all detected Python installations:
+
+- System Python
+- Homebrew Python (macOS)
+- Python from Microsoft Store (Windows)
+- pyenv versions (macOS/Linux)
+- Conda environments
+- Virtual environments (.venv)
+
+The selected environment becomes the default kernel for new notebooks and is automatically activated in new terminals.
+
+### Creating a virtual environment
+
+Click **Create Python virtual environment** to create a `.venv` in your workspace:
+
+1. Qualia creates the virtual environment
+2. It becomes available in the kernel picker
+3. Select it to use for your project
+
+This is useful for isolating project dependencies.
+
+## Julia environment
+
+Select the Julia installation for new notebooks:
+
+- System Julia
+- Juliaup versions
+- Custom installations
+
+Julia kernels appear in the kernel picker grouped separately from Python.
+
+## R environment
+
+Select the R installation for new notebooks:
+
+- System R
+- R installations in standard locations
+
+R kernels work like Python kernels — select an environment here, and new R notebooks use it.
+
+## Terminal shell
+
+Override the default shell for terminals:
+
+- **Empty**: Use system default (`SHELL` on Unix, PowerShell on Windows)
+- **Custom path**: Specify a shell like `/bin/zsh` or `/bin/bash` (macOS/Linux) or `cmd.exe` (Windows)
+
+<Tabs>
+  <Tab title="macOS/Linux">
+    Common shell paths:
+    - `/bin/zsh` (default on modern macOS)
+    - `/bin/bash`
+    - `/bin/fish`
+  </Tab>
+  <Tab title="Windows">
+    Common shell options:
+    - PowerShell (default)
+    - `cmd.exe` for Command Prompt
+    - WSL bash if Windows Subsystem for Linux is installed
+  </Tab>
+</Tabs>
+
+Changes apply to new terminals only. Existing terminals keep their original shell.
+
+## Response language
+
+Control the language Qualia uses in responses:
+
+- **Auto**: Match your system language
+- **Specific language**: Always respond in English, Spanish, etc.
+
+This affects the AI's responses, not the UI language.
+
+## Default kernel validation
+
+Qualia validates that your default kernel exists:
+
+- **Green check**: Kernel is available
+- **Warning**: Kernel not found (e.g., deleted virtual environment)
+
+If your default kernel is missing, new notebooks fall back to the first available Python kernel.
+
+## Related settings
+
+- [Editor settings](/settings/editor) for code editing preferences
+- [AI settings](/settings/ai) for model and behavior configuration
+- [Kernel toolbar](/kernel-toolbar) for kernel controls in notebooks

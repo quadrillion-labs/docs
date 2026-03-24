@@ -1,0 +1,121 @@
+---
+title: Tab Management
+description: "Work with multiple documents in tabs and split view."
+---
+
+Qualia uses a tabbed interface where each open document, terminal, or tool appears as a tab. You can work with multiple tabs at once using split view.
+
+## Tab types
+
+Different content opens in different tab types:
+
+| Type | Extension/Source | Purpose |
+|------|------------------|---------|
+| **Notebook** | `.ipynb` | Jupyter notebooks with code execution |
+| **Writeup** | `.qua` | Research documents |
+| **Terminal** | — | Shell sessions |
+| **Chat** | — | Standalone conversation sessions |
+| **Tasks** | — | Task DAG viewer |
+| **Knowledge** | — | Knowledge graph browser |
+| **Settings** | — | Application settings |
+
+## Working with tabs
+
+### Opening tabs
+
+- **Double-click** a file in the Files sidebar
+- **Click** search results to open files
+- **New notebook** / **New terminal** buttons in the tab bar
+- **Cmd/Ctrl+click** to open in a new tab instead of replacing
+
+### Closing tabs
+
+- Click the **X** on a tab
+- **Cmd/Ctrl+W** closes the active tab
+- Right-click for **Close**, **Close Others**, **Close All**
+
+### Switching tabs
+
+- Click any tab to make it active
+- **Cmd/Ctrl+Tab** cycles through tabs
+- **Cmd/Ctrl+1-9** jumps to tab by position
+
+### Reordering tabs
+
+Drag tabs left or right to reorder them within a pane.
+
+## Split view
+
+Work with two documents side by side using split view.
+
+### Creating a split
+
+- **Drag a tab** to the left or right edge of the editor area
+- The target pane highlights — drop to create the split
+
+### Resizing panes
+
+- Drag the divider between panes
+- Each pane maintains its own tabs
+
+### Moving tabs between panes
+
+Drag a tab from one pane's tab bar to the other's.
+
+### Focus
+
+One pane is always focused (indicated by a subtle highlight). New files open in the focused pane by default.
+
+- Click anywhere in a pane to focus it
+- Keyboard shortcuts affect the focused pane
+
+### Closing a pane
+
+When you close the last tab in a pane, the split collapses.
+
+## Persistence
+
+Open tabs are saved per workspace:
+
+- Reopen Qualia and your tabs are restored
+- Switch workspaces and each has its own tab state
+- Tab positions (including split layout) are preserved
+
+Settings tabs are not persisted — they open fresh each time.
+
+## Zoom
+
+Adjust the content zoom level in the tab area:
+
+| Shortcut | Action |
+|----------|--------|
+| **Cmd/Ctrl++** | Zoom in |
+| **Cmd/Ctrl+-** | Zoom out |
+| **Cmd/Ctrl+0** | Reset zoom |
+
+Zoom ranges from 50% to 200% in 10% increments. This affects the document content, not the sidebar or chrome.
+
+## Keyboard shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **Cmd/Ctrl+W** | Close active tab |
+| **Cmd/Ctrl+Shift+T** | Reopen closed tab |
+| **Cmd/Ctrl+Tab** | Next tab |
+| **Cmd/Ctrl+Shift+Tab** | Previous tab |
+| **Cmd/Ctrl+1-9** | Go to tab N |
+| **Cmd/Ctrl+\\** | Toggle split |
+
+## Tab bar actions
+
+The tab bar includes quick actions:
+
+- **New notebook** (notebook icon): Create a new notebook
+- **New terminal** (terminal icon): Open a new terminal
+- **Tab overflow menu** (when many tabs): Access tabs that don't fit
+
+Right-click any tab for context menu options:
+
+- **Close** / **Close Others** / **Close All**
+- **Copy Path**: Copy the file path
+- **Reveal in Finder/Explorer**: Open in file manager
