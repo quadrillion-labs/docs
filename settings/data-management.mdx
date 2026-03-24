@@ -1,0 +1,65 @@
+---
+title: Data Management
+description: "Manage Qualia's internal database and reset options."
+---
+
+Data management settings control Qualia's internal database. Use these options for troubleshooting or starting fresh.
+
+## What Qualia stores
+
+Qualia maintains an internal database with:
+
+- **Chat sessions**: Conversation history with agents
+- **Generation history**: AI responses and tool calls
+- **Experiments**: Tracked runs and results
+- **Stored blobs**: Cached data and attachments
+
+This database is separate from your notebooks and files, which are stored on disk.
+
+## Drop all tables
+
+**Warning: Destructive operation**
+
+Reset the Qualia database completely:
+
+1. Go to **Settings > Data**
+2. Click **Drop All Tables**
+3. Type the confirmation phrase exactly as shown
+4. Confirm the action
+
+### What gets deleted
+
+- All chat sessions and conversation history
+- All generation history
+- All experiments
+- All stored blobs and cached data
+
+### What is preserved
+
+- Notebooks (`.ipynb` files on disk)
+- Writeups (`.qua` files on disk)
+- Files in your workspace
+- Settings and preferences
+- Rules and skills
+
+<Warning>
+  This cannot be undone. Only use this if you want a completely fresh start or are troubleshooting database issues.
+</Warning>
+
+## When to reset
+
+Consider resetting if:
+
+- The database has become corrupted
+- You want to clear all conversation history
+- You're troubleshooting persistent issues
+- You want a fresh start with Qualia
+
+## After resetting
+
+After dropping all tables:
+
+- Restart Qualia for changes to take full effect
+- Your notebooks and files remain intact
+- You'll need to start new chat sessions
+- Settings and customizations are preserved

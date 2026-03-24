@@ -1,0 +1,128 @@
+---
+title: AI Assistant Settings
+description: "Configure models, research style, rules, skills, and agent behavior."
+---
+
+AI Assistant settings control how Qualia's AI behaves — from model selection to autonomy levels.
+
+## Web search
+
+Enable or disable web search for supported providers (OpenAI, Anthropic):
+
+- **Enabled**: AI can look up documentation and references
+- **Disabled**: AI works only with local context
+
+Web search is useful for staying current with APIs and best practices.
+
+## New agents
+
+Settings for how agents are created and configured.
+
+### Default model for agent-created agents
+
+When an agent creates parallel agents, this model is used:
+
+- Consider using a faster, cheaper model for parallel work
+- Parallel agents often handle focused, bounded tasks
+
+### Default model for user-created agents
+
+When you start a new chat or agent, this model is used:
+
+- Your primary model for direct interaction
+- Usually your most capable model
+
+### Model favorites
+
+Star models in the picker to favorite them:
+
+- Favorites appear at the first in the model list
+- Drag to reorder favorites
+- Quick access to your most-used models
+
+### New agents require user confirmation
+
+Control whether agent creation needs approval:
+
+- **Enabled**: You approve each new agent before it starts
+- **Disabled**: Agents start immediately
+
+Pending agents show in the Agents sidebar when confirmation is required.
+
+### Auto-assign unassigned tasks to agents
+
+Control automatic task assignment:
+
+- **Enabled**: Tasks are automatically assigned to available and new agents
+- **Disabled**: Tasks stay unassigned until you assign them manually
+
+When disabled, use the [Gantt view](/tasks) to drag tasks onto agents.
+
+## Research style
+
+Default curiosity and independence for new agents.
+
+### Curiosity
+
+How much the agent explores beyond your immediate request:
+
+| Level | Behavior |
+|-------|----------|
+| **Low** | Stays focused on exactly what you asked |
+| **Medium** | Explores related areas when relevant |
+| **High** | Actively investigates tangential questions |
+
+### Independence
+
+How much the agent assumes versus asks:
+
+| Level | Behavior |
+|-------|----------|
+| **Low** | Asks for confirmation frequently |
+| **Medium** | Makes routine decisions, asks about significant ones |
+| **High** | Assumes most things, asks only about major choices |
+| **Infinity** | Fully autonomous — posts to Slack instead of asking |
+
+<Info>
+  Infinity independence requires Slack to be configured. See [Autonomous Mode](/autonomous-mode) for details.
+</Info>
+
+### Per-session overrides
+
+These settings are defaults. You can adjust curiosity and independence for individual chat sessions without changing the global settings.
+
+## Rules
+
+Persistent instructions that guide AI behavior. See [Rules](/rules) for full documentation.
+
+In Settings, you can:
+
+- **Create rules**: Add new rule files
+- **Edit rules**: Modify existing rules
+- **Import rules**: From Cursor or Claude Code
+- **Reveal folder**: Open rules directory in file manager
+
+## Skills
+
+Reusable workflows the AI can invoke. See [Skills](/skills) for full documentation.
+
+In Settings, you can:
+
+- **Create skills**: Add new skill files
+- **Edit skills**: Modify existing skills
+- **Toggle auto-invoke**: Control whether agents can trigger skills automatically
+- **Import skills**: From Cursor or Claude Code
+
+## Bash command allowlist
+
+Commands you've approved with "Run & allow" appear here:
+
+- Approved commands run without confirmation in future
+- Remove commands to require confirmation again
+- Platform-specific (macOS, Linux, Windows)
+
+## Related settings
+
+- [Appearance settings](/settings/appearance) for chat display options
+- [Autonomous mode](/autonomous-mode) for Infinity independence
+- [MCP Integrations](/mcp-integrations) for external tools

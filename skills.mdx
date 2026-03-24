@@ -1,0 +1,146 @@
+---
+title: Skills
+description: "Define reusable workflows that agents can invoke automatically or on demand."
+---
+
+Skills are named workflows — sets of instructions for accomplishing specific tasks. Unlike [rules](/rules) which set ongoing behavior, skills are procedures that agents follow when a particular type of work comes up.
+
+## What are skills?
+
+A skill includes:
+
+- **Name**: Identifier used to invoke the skill
+- **Description**: When to use this skill
+- **Instructions**: Step-by-step guidance
+- **Auto-invoke setting**: Whether agents can trigger it automatically
+
+Skills are stored as `SKILL.md` files in Qualia's configuration directory.
+
+## Agent-triggerable vs manual
+
+### Agent-triggerable skills
+
+When enabled, the skill appears in the agent's available tools:
+
+- Agents see the skill name and description
+- If a request matches, the agent loads and follows the skill
+- No action needed from you
+
+Use agent-triggerable skills for workflows the AI should recognize and handle automatically:
+- "Analyze a time series column"
+- "Run exploratory data analysis on a new dataset"
+- "Train and evaluate a classification model"
+
+### Manual-only skills
+
+Must be explicitly invoked:
+
+- Not listed in agent context
+- Activated with `/skill-name` in chat
+- For workflows you want to control
+
+Use manual skills for:
+- Sensitive operations
+- Workflows requiring specific timing
+- Procedures you want to invoke deliberately
+
+## Creating skills
+
+1. Go to **Settings > AI Assistant**
+2. Expand the **Skills** section
+3. Click **Create Skill**
+4. Enter:
+   - **Name**: Lowercase with hyphens (e.g., `time-series`)
+   - **Description**: When to use this skill (e.g., "Initial analysis of a time series column")
+   - **Instructions**: The workflow steps
+   - **Agent-triggerable**: Whether agents auto-invoke
+
+## Using skills
+
+### Slash command
+
+Invoke any skill with `/` followed by the skill name:
+
+> */time-series*
+
+The skill's instructions are loaded and the agent follows them.
+
+### Agent auto-invocation
+
+For agent-triggerable skills, just describe what you want:
+
+> *"Analyze this time series data"*
+
+If you have a `time-series` skill with matching description, the agent recognizes the request and loads the skill.
+
+## Skill structure
+
+A well-designed skill includes:
+
+1. **Context**: What situation triggers this skill
+2. **Steps**: Ordered actions to take
+3. **Verification**: How to confirm success
+4. **Error handling**: What to do if something fails
+
+Example skill content:
+
+```markdown
+# Time Series Analysis
+
+Use this skill for initial analysis of a time series column.
+
+## Steps
+
+1. Make a time series plot, a histogram, and a partial autocorrelation plot.
+2. Test for long-term trends and drifts.
+3. Analyze the time series in frequency space and identify cyclic behavior or interesting frequencies.
+4. Find any anomalous time periods.
+```
+
+## Importing skills
+
+### From Cursor
+
+1. Go to **Settings > AI Assistant > Skills**
+2. Click **Import from Cursor**
+3. Skills from `~/.cursor/skills/` are imported
+
+### From Claude Code
+
+1. Click **Import from Claude Code**
+2. Skills from `.claude/skills/` and legacy `.claude/commands/` are imported
+
+## Skills vs rules
+
+| Aspect | Rules | Skills |
+|--------|-------|--------|
+| **Purpose** | Ongoing behavior guidelines | Specific procedures |
+| **Scope** | Apply broadly | Triggered for specific tasks |
+| **Structure** | Constraints and preferences | Step-by-step instructions |
+| **Example** | "Always use polars instead of pandas" | "How to analyze a time series" |
+
+Use both together: rules for how to work, skills for what to do.
+
+## Managing skills
+
+### Viewing files
+
+Click **Reveal Skills Folder** in Settings to open the skills directory. Each skill has its own folder containing a `SKILL.md` file.
+
+### Editing
+
+Edit skills in Settings or directly on disk. Changes are picked up automatically.
+
+### Deleting
+
+Delete skills from Settings. The skill folder is removed from disk.
+
+## Best practices
+
+**Match skills to workflows**: Each skill should correspond to a recognizable task. If you find yourself writing very long skills, consider breaking them into multiple smaller skills.
+
+**Write clear descriptions**: The description helps agents (and you) know when to use the skill. Be specific about triggers.
+
+**Test agent triggering**: After creating an agent-triggerable skill, verify it activates correctly with various phrasings of the same request.
+
+**Version control your skills**: Consider making your skills repository a git repository and synchronizing it across devices or projects.

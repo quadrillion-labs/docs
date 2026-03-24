@@ -1,0 +1,128 @@
+---
+title: Kernel Toolbar
+description: "Control code execution with the kernel picker and toolbar actions."
+---
+
+Every notebook has a kernel — the runtime that executes your code. The kernel toolbar at the top of each notebook lets you select, control, and monitor the kernel.
+
+## The kernel picker
+
+Click the **kernel button** (shows the current kernel name) to open the picker.
+
+### Kernel information
+
+The button displays:
+
+- **Status indicator**: Colored dot showing kernel state
+- **Display name**: Language and environment (e.g., "Python 3.11 | /usr/local/bin/python")
+
+### Selecting a kernel
+
+The picker groups available kernels by language:
+
+- **Python**: All Python installations and virtual environments
+- **R**: R installations
+- **Julia**: Julia installations
+
+Each entry shows the language version and environment path. Click to switch kernels.
+
+<Info>
+  Up to five kernels show per group. Click **See more kernels** to view all available options.
+</Info>
+
+### Active kernels
+
+If a kernel is already running, it appears separately under **Active** — you can attach to an existing kernel session instead of starting a new one.
+
+## Status indicators
+
+The kernel status dot changes color:
+
+| Color | State | Meaning |
+|-------|-------|---------|
+| **Gray** | Idle | Ready to execute |
+| **Blue** | Info | Starting up |
+| **Green** | Success | Execution completed |
+| **Red** | Error | Kernel crashed or failed |
+
+When code is running, a spinner appears in the toolbar.
+
+## Toolbar actions
+
+The toolbar provides buttons for common kernel operations:
+
+### Execution control
+
+| Action | Description |
+|--------|-------------|
+| **Interrupt** | Stop the currently running cell |
+| **Run all** | Run all cells from top to bottom |
+| **Run up to current** | Run cells from top through the selected cell |
+| **Clear outputs** | Remove all cell outputs |
+
+### Kernel management
+
+| Action | Description |
+|--------|-------------|
+| **Restart** | Restart the kernel (clears state) |
+| **Shutdown** | Stop the kernel completely |
+
+### Combined actions
+
+Some actions combine restart with execution:
+
+- **Restart and run all**: Fresh kernel, then run everything
+- **Restart and run up to current**: Fresh kernel, then run to current cell
+- **Restart and clear**: Fresh kernel, clear all outputs
+
+## Execution indicator
+
+When cells are running:
+
+- A **spinner** appears in the toolbar
+- Click the spinner to **scroll to the executing cell**
+- The spinner persists until execution completes
+
+This helps you track long-running computations — click to jump back to where the action is.
+
+## Default kernel
+
+Set your preferred default kernel in [Settings > General](/settings/general):
+
+1. Go to **Settings**
+2. Under **Default Python Environment**, select your preferred Python
+3. New notebooks use this kernel automatically
+
+Qualia validates that the selected kernel exists. If it's missing (e.g., a virtual environment was deleted), you'll see a warning.
+
+## Responsive layout
+
+When the window is narrow, toolbar actions collapse into a **More** menu (⋮). All the same actions are available — just fewer visible buttons.
+
+## Keyboard shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **Cmd/Ctrl+I** | Interrupt kernel |
+| **Cmd/Ctrl+.** | Restart kernel |
+| **Cmd/Ctrl+Shift+Enter** | Run all cells |
+
+## Troubleshooting
+
+### Kernel not starting
+
+- Check that the Python/R/Julia installation exists
+- Verify virtual environments are activated correctly
+- Look at the error message in the status area
+
+### Kernel keeps dying
+
+- Memory issues can crash kernels — check your system resources
+- Some packages have installation problems — try in a fresh environment
+- The kernel log may have more details
+
+### Wrong environment
+
+- Verify the kernel picker shows the expected path
+- Check that packages are installed in that environment
+- The environment shown in the picker should match where you installed dependencies

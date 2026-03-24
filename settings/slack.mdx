@@ -1,0 +1,67 @@
+---
+title: Slack Integration
+description: "Connect Qualia to Slack for autonomous mode updates."
+---
+
+Connect Qualia to Slack to receive updates from agents running in [autonomous mode](/autonomous-mode). When agents are set to Infinity independence, they post progress and results to your Slack channel instead of asking for confirmation.
+
+## Connecting to Slack
+
+1. Go to **Settings > Slack**
+2. Click **Connect to Slack**
+3. Authorize Qualia in the Slack OAuth flow
+4. Select a channel for updates
+
+Once connected, you'll see your workspace name and selected channel.
+
+## Channel selection
+
+Choose which channel receives autonomous agent updates:
+
+| Channel type | Use case |
+|--------------|----------|
+| **Public channel** | Team visibility into agent progress |
+| **Private channel** | Limited visibility for sensitive work |
+| **Direct message** | Personal updates only you see |
+
+The Qualia bot must be added to private channels before you can select them.
+
+## What gets posted
+
+Autonomous agents post:
+
+- **Progress updates**: What they're working on
+- **Findings**: Preliminary results and insights
+- **Completion notices**: When tasks finish
+- **Questions**: If they need guidance (you can reply from Slack)
+
+## Replying from Slack
+
+You can respond to agent updates directly in Slack:
+
+- Provide guidance on direction
+- Ask for more detail on results
+- Suggest alternative approaches
+
+The agent incorporates your feedback and adjusts its work.
+
+## Disconnecting
+
+Click **Disconnect** to revoke Slack access:
+
+- Autonomous mode will no longer send updates
+- Agents at Infinity independence will continue working but won't report progress
+- You can reconnect at any time
+
+## Troubleshooting
+
+### Bot not posting
+
+- Verify the bot is added to the selected channel
+- Check that Slack connection shows as active in Settings
+- Ensure the agent is actually at Infinity independence
+
+### Can't select a channel
+
+- The channel list only shows channels where the bot is a member
+- For private channels, invite the Qualia bot first

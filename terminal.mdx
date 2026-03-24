@@ -1,0 +1,70 @@
+---
+title: Terminal
+description: "An integrated terminal for running shell commands without leaving Qualia."
+---
+
+Qualia includes a full-featured terminal so you can run shell commands directly in the app. Each terminal runs in its own tab and persists across sessions.
+
+## Opening a terminal
+
+There are several ways to open a new terminal:
+
+- Click the **terminal icon** next to "New notebook" in the tab bar
+- Press **Cmd+\`** (Mac) or **Ctrl+\`** (Windows/Linux)
+- The keyboard shortcut opens a terminal in the currently focused pane
+
+## Terminal basics
+
+The terminal is a standard shell session with full access to your system:
+
+- Run any shell command (`ls`, `git`, `npm`, `python`, etc.)
+- Navigate directories with `cd`
+- Install packages and manage dependencies
+- Run scripts and executables
+
+The terminal uses your system's default shell, or you can configure a specific shell in [Settings > General](/settings/general).
+
+<Info>
+  Agents cannot interact with terminals. When agents need to run shell commands, they use notebook code cells with shell magic (`!command`) or the built-in shell tools instead.
+</Info>
+
+## Working with multiple terminals
+
+You can open multiple terminals simultaneously:
+
+- Each terminal appears as a separate tab
+- Drag terminal tabs between panes in [split view](/tabs)
+- Close terminals by clicking the X on the tab or typing `exit`
+
+When you close and reopen Qualia, your terminal sessions are preserved, though the shell state (environment variables, current directory) resets.
+
+## Terminal and notebooks
+
+The terminal and notebooks share the same workspace context:
+
+- Both see the same files and directories
+- Changes made in the terminal (new files, installed packages) are immediately available in notebooks
+- The default Python environment from Settings is automatically activated in new terminals
+
+## Shell configuration
+
+Configure your terminal shell in **Settings > General > Terminal Shell**:
+
+- Leave empty to use your system's default shell
+- Set a specific path like `/bin/zsh` or `/bin/bash`
+- The setting applies to new terminals only
+
+<Info>
+  On Windows, the terminal defaults to PowerShell. On macOS and Linux, it uses your `SHELL` environment variable.
+</Info>
+
+## Keyboard shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **Cmd/Ctrl+`** | Open new terminal in focused pane |
+| **Cmd/Ctrl+C** | Interrupt running command |
+| **Cmd/Ctrl+D** | Send EOF (often closes shell) |
+| **Cmd/Ctrl+K** | Clear terminal screen |
+
+Standard terminal shortcuts work as expected — Qualia doesn't intercept them.

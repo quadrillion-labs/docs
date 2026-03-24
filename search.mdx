@@ -1,0 +1,126 @@
+---
+title: Search
+description: "Find content in your current document or across your entire workspace."
+---
+
+Qualia provides two search experiences: finding text within the current tab, and searching across all files in your workspace.
+
+## Find in current tab
+
+Press **Cmd+F** (Mac) or **Ctrl+F** (Windows/Linux) to open the find bar in your current tab.
+
+### Basic search
+
+Type your search term and press Enter or click the arrows to navigate between matches:
+
+- **Up arrow / Shift+Enter**: Previous match
+- **Down arrow / Enter**: Next match
+- **Esc**: Close find bar
+
+Matches are highlighted in the document as you type.
+
+### Search options
+
+Toggle these options for more control:
+
+| Option | Shortcut | Effect |
+|--------|----------|--------|
+| **Aa** (Match case) | — | Only match exact capitalization |
+| **[w]** (Whole word) | — | Only match complete words |
+| **.\*** (Regex) | — | Treat search as regular expression |
+
+### Find and replace
+
+Click the expand arrow to show the replace field:
+
+1. Enter search term in the first field
+2. Enter replacement text in the second field
+3. Click **Replace** to replace current match
+4. Click **Replace All** to replace all matches
+
+### Find in chat
+
+When the chat panel is focused, Cmd/Ctrl+F searches chat history instead of the document. The same options (case, word, regex) apply.
+
+## Search across files
+
+The **Search** sidebar searches all files in your workspace. Open it from the activity bar (magnifying glass icon).
+
+<Info>
+  Workspace search requires a folder to be open. If no folder is open, the sidebar shows "No folder open."
+</Info>
+
+### Running a search
+
+1. Enter your search term
+2. Results appear as you type (with a brief debounce)
+3. Click a result to open the file at that location
+
+Results show:
+
+- **Content matches**: Lines containing your search term
+- **File matches**: Files whose names match
+- **Folder matches**: Directories whose names match
+
+Content matches appear first, then files, then folders.
+
+### Search options
+
+| Option | Effect |
+|--------|--------|
+| **Aa** (Match case) | Case-sensitive search |
+| **[w]** (Whole word) | Match complete words only |
+| **.\*** (Regex) | Regular expression search |
+| **Include empty directories** | Show matching folder names |
+
+### Replace across files
+
+1. Toggle the replace field
+2. Enter replacement text
+3. Click **Replace All**
+
+A confirmation dialog shows:
+
+- Number of matches
+- Number of files affected
+
+After confirming:
+
+- Files on disk are updated
+- Open editors are updated in memory
+- Files currently being edited by AI are excluded
+
+<Warning>
+  Replace across files cannot be undone in a single action. Review the match count before confirming.
+</Warning>
+
+### Performance
+
+Workspace search uses **ripgrep** for speed. It can search large codebases quickly, but results are capped to keep the interface responsive. If your search matches thousands of files, you'll see a truncation notice.
+
+## Search in context
+
+### Notebooks
+
+Find searches across all cells in the notebook — code cells, markdown cells, and outputs.
+
+### Writeups
+
+Find searches the document content including headings, paragraphs, and code blocks.
+
+### Chat
+
+Find searches the visible chat history including your messages and AI responses.
+
+## Keyboard shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| **Cmd/Ctrl+F** | Open find in current tab |
+| **Cmd/Ctrl+G** | Find next match |
+| **Cmd/Ctrl+Shift+G** | Find previous match |
+| **Esc** | Close find bar |
+
+<Info>
+  Qualia uses Cmd/Ctrl+F for in-tab find, not Cmd/Ctrl+Shift+F (which some editors use for "find in files"). The Search sidebar is the way to search across files.
+</Info>

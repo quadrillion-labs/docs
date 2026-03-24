@@ -1,0 +1,88 @@
+---
+title: Autonomous Mode
+description: "Let Qualia work independently for hours with Slack updates."
+---
+
+Autonomous mode lets Qualia work independently on complex research tasks for extended periods. Instead of waiting for your approval at each step, the agent makes decisions on its own and reports progress via Slack.
+
+## Setting up autonomous mode
+
+Autonomous mode requires two things:
+
+1. **Independence set to Infinity**
+2. **Slack connected and configured**
+
+### Configure Slack
+
+1. Go to **Settings > Slack**
+2. Click **Connect to Slack** and authorize Qualia
+3. Select a channel for updates
+
+Once connected, agents running at Infinity independence will post progress to your chosen channel.
+
+## Research style settings
+
+Autonomous behavior is controlled by two settings in **Settings > AI > New Agents > Default Research Style**:
+
+### Curiosity
+
+How much the agent explores beyond your immediate request:
+
+| Level | Behavior |
+|-------|----------|
+| **Low** | Stays focused on exactly what you asked |
+| **Medium** | Explores related areas when relevant |
+| **High** | Actively investigates tangential questions |
+
+### Independence
+
+How much the agent assumes versus asks:
+
+| Level | Behavior |
+|-------|----------|
+| **Low** | Asks for confirmation frequently |
+| **Medium** | Makes routine decisions, asks about significant ones |
+| **High** | Assumes most things, asks only about major choices |
+| **Infinity** | Fully autonomous — no confirmations, Slack updates instead |
+
+<Warning>
+  Infinity independence skips all confirmation dialogs. Use it for trusted background work where you're comfortable with the agent making decisions without you.
+</Warning>
+
+## Working with autonomous agents
+
+### Starting an autonomous run
+
+1. Set independence to **Infinity** (in Settings or per-session)
+2. Describe a research direction:
+
+> *"Explore different architectures for this timeseries forecasting problem. Try at least 5 approaches and report the best."*
+
+3. The agent works independently, posting updates to Slack
+
+### Monitoring progress
+
+While an autonomous agent runs:
+
+- **Slack**: Receive progress updates, preliminary findings, and completion notices
+- **Tasks sidebar**: See the task graph and status
+- **Agents sidebar**: View agent hierarchy and status indicators
+
+### Guiding from Slack
+
+You can respond to Slack updates to steer the agent:
+
+- Propose new directions
+- Ask it to focus on specific approaches
+- Request more detail on promising results
+
+The agent incorporates your feedback and adjusts its approach.
+
+## When to use autonomous mode
+
+Autonomous mode works well for:
+
+- **Open-ended exploration**: Find the causes of all anomalies in a dataset
+- **Model sweeps**: Try many configurations and automatically follow up on promising directions
+- **Long-running experiments**: Training runs that need to be monitored for hours and stopped if no longer useful
+
