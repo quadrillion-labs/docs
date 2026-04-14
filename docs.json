@@ -36,19 +36,19 @@
         "groups": [
           {
             "group": "Welcome",
-            "pages": ["index", "getting-started", "tutorial"]
+            "pages": ["index", "getting-started"]
           },
           {
             "group": "Core Features",
-            "pages": ["chat-and-ai", "notebooks", "tasks", "knowledge"]
+            "pages": ["chat-and-ai", "notebooks", "terminal", "writeups"]
           },
           {
-            "group": "Research Workflow",
-            "pages": ["agents", "autonomous-mode", "q-vars"]
+            "group": "Agents & Tasks",
+            "pages": ["agents", "tasks", "autonomous-mode"]
           },
           {
-            "group": "Tools",
-            "pages": ["terminal", "writeups"]
+            "group": "Knowledge System",
+            "pages": ["knowledge", "q-vars"]
           },
           {
             "group": "Customization & Settings",

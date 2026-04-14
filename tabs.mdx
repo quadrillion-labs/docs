@@ -1,34 +1,23 @@
 ---
 title: Tab Management
-description: "Work with multiple documents in tabs across different panes."
+description: "Work with multiple documents in tabs and split view."
 ---
 
-Qualia uses a multi-pane tabbed interface. The workspace is divided into specialized pane areas, each containing tabs for different types of content.
-
-## Pane layout
-
-The workspace has four pane areas:
-
-| Pane | Location | Purpose |
-|------|----------|---------|
-| **Sidebar** | Left | Explorer, Search, Agents, Tasks, Knowledge |
-| **Editor** | Center | Files, notebooks, terminals, settings |
-| **Terminal** | Bottom | Dedicated terminal sessions |
-| **Chat** | Right | Conversation sessions |
-
-Each pane area can hold multiple tabs. The terminal and chat panes auto-hide when empty.
+Qualia uses a tabbed interface where each open document, terminal, or tool appears as a tab. You can work with multiple tabs at once using split view.
 
 ## Tab types
 
-| Type | Content |
-|------|---------|
-| **File** | Notebooks (`.ipynb`), writeups (`.qua`), text files |
-| **Terminal** | Shell sessions |
-| **Chat** | Conversations with Qualia |
-| **Tasks** | Task DAG viewer (Gantt and graph views) |
-| **Knowledge** | Knowledge graph browser |
-| **Settings** | Application settings |
-| **Search** | Search results |
+Different content opens in different tab types:
+
+| Type | Extension/Source | Purpose |
+|------|------------------|---------|
+| **Notebook** | `.ipynb` | Jupyter notebooks with code execution |
+| **Writeup** | `.qua` | Research documents |
+| **Terminal** | — | Shell sessions |
+| **Chat** | — | Standalone conversation sessions |
+| **Tasks** | — | Task DAG viewer |
+| **Knowledge** | — | Knowledge graph browser |
+| **Settings** | — | Application settings |
 
 ## Working with tabs
 
@@ -36,40 +25,53 @@ Each pane area can hold multiple tabs. The terminal and chat panes auto-hide whe
 
 - **Double-click** a file in the Files sidebar
 - **Click** search results to open files
-- **+** button in the editor tab bar opens the file creation dialog
-- **Terminal icon** in the editor tab bar opens a new terminal
+- **New notebook** / **New terminal** buttons in the tab bar
+- **Cmd/Ctrl+click** to open in a new tab instead of replacing
 
 ### Closing tabs
 
 - Click the **X** on a tab
 - **Cmd/Ctrl+W** closes the active tab
+- Right-click for **Close**, **Close Others**, **Close All**
 
 ### Switching tabs
 
 - Click any tab to make it active
-- Use the sidebar icons to switch between sidebar views
+- **Cmd/Ctrl+Tab** cycles through tabs
+- **Cmd/Ctrl+1-9** jumps to tab by position
 
-### Reordering and moving tabs
+### Reordering tabs
 
-- Drag tabs left or right to reorder them within a pane
-- Drag a tab to a different pane area to move it
+Drag tabs left or right to reorder them within a pane.
 
-## Editor splits
+## Split view
 
-Work with multiple documents side by side in the editor pane.
+Work with two documents side by side using split view.
 
 ### Creating a split
 
-- **Drag a tab** toward the edge of the editor area
-- A highlight shows where the split will appear — drop to create it
+- **Drag a tab** to the left or right edge of the editor area
+- The target pane highlights — drop to create the split
 
-### Resizing splits
+### Resizing panes
 
-Drag the divider between split sections to resize them.
+- Drag the divider between panes
+- Each pane maintains its own tabs
 
-### Closing a split
+### Moving tabs between panes
 
-When you close the last tab in a split section, it collapses automatically.
+Drag a tab from one pane's tab bar to the other's.
+
+### Focus
+
+One pane is always focused (indicated by a subtle highlight). New files open in the focused pane by default.
+
+- Click anywhere in a pane to focus it
+- Keyboard shortcuts affect the focused pane
+
+### Closing a pane
+
+When you close the last tab in a pane, the split collapses.
 
 ## Persistence
 
@@ -77,13 +79,13 @@ Open tabs are saved per workspace:
 
 - Reopen Qualia and your tabs are restored
 - Switch workspaces and each has its own tab state
-- Tab positions and pane layout are preserved
+- Tab positions (including split layout) are preserved
 
 Settings tabs are not persisted — they open fresh each time.
 
 ## Zoom
 
-Adjust the content zoom level:
+Adjust the content zoom level in the tab area:
 
 | Shortcut | Action |
 |----------|--------|
@@ -91,23 +93,29 @@ Adjust the content zoom level:
 | **Cmd/Ctrl+-** | Zoom out |
 | **Cmd/Ctrl+0** | Reset zoom |
 
+Zoom ranges from 50% to 200% in 10% increments. This affects the document content, not the sidebar or chrome.
+
 ## Keyboard shortcuts
 
 | Shortcut | Action |
 |----------|--------|
-| **Cmd/Ctrl+N** | Create new file |
 | **Cmd/Ctrl+W** | Close active tab |
-| **Cmd/Ctrl+`** | New terminal |
-| **Cmd/Ctrl+B** | Toggle sidebar |
-| **Cmd/Ctrl+K** | Toggle chat panel |
-| **Cmd/Ctrl+Shift+E** | Show explorer |
-| **Cmd/Ctrl+Shift+A** | Show agents |
+| **Cmd/Ctrl+Shift+T** | Reopen closed tab |
+| **Cmd/Ctrl+Tab** | Next tab |
+| **Cmd/Ctrl+Shift+Tab** | Previous tab |
+| **Cmd/Ctrl+1-9** | Go to tab N |
+| **Cmd/Ctrl+\\** | Toggle split |
 
 ## Tab bar actions
 
-The editor tab bar includes:
+The tab bar includes quick actions:
 
-- **+ button**: Open the file creation dialog (notebooks, writeups, or other files)
-- **Terminal icon**: Open a new terminal in the current pane
+- **New notebook** (notebook icon): Create a new notebook
+- **New terminal** (terminal icon): Open a new terminal
+- **Tab overflow menu** (when many tabs): Access tabs that don't fit
 
-Tabs show a dot indicator when they have unsaved changes.
+Right-click any tab for context menu options:
+
+- **Close** / **Close Others** / **Close All**
+- **Copy Path**: Copy the file path
+- **Reveal in Finder/Explorer**: Open in file manager

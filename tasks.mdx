@@ -23,25 +23,23 @@ Tasks move through a defined lifecycle:
 
 ```mermaid
 flowchart LR
-    planned --> in_progress
+    blocked --> ready
+    ready --> in_progress
     in_progress --> completed
     in_progress --> failed
     in_progress --> cancelled
-    in_progress <--> paused_by_user
 ```
 
 | Status | Meaning |
 |--------|---------|
-| **planned** | Task is defined but not yet started |
+| **blocked** | Waiting for upstream tasks to complete |
+| **ready** | All dependencies satisfied, can be started |
 | **in_progress** | An agent is actively working on it |
 | **completed** | Task finished successfully |
 | **failed** | Task encountered an error |
 | **cancelled** | Task was stopped before completion |
-| **paused_by_user** | You paused the task; can be resumed |
 
-### Blocking
-
-Tasks can be **blocked** when they depend on upstream tasks that haven't completed yet. Blocking is tracked separately from status — a planned task may be blocked or unblocked depending on whether its dependencies are satisfied. When upstream tasks complete, blocked tasks automatically become unblocked and available to start.
+When a task completes, downstream tasks that were blocked automatically become ready.
 
 ## The Tasks sidebar
 
@@ -61,15 +59,6 @@ Click **New tasks** to describe work in natural language. Qualia analyzes your d
 > *"Analyze this dataset: clean the data, run three different models, compare their performance, and summarize the best approach."*
 
 This creates multiple linked tasks with appropriate dependencies.
-
-### Modifying and deleting tasks
-
-You can edit or remove **planned** tasks before they start:
-
-- **Edit**: Click a planned task to modify its title, objective, or dependencies
-- **Delete**: Remove tasks that are no longer needed
-
-Once a task moves to **in_progress**, it can no longer be edited or deleted — pause it first if you need to make changes.
 
 ### Reassigning tasks
 
@@ -99,7 +88,7 @@ When an agent completes a task, it typically produces **claims** in the [Knowled
 
 In the Chat sidebar, each agent shows a collapsible task summary:
 
-- Count of tasks by status (completed, in progress, planned, etc.)
+- Count of tasks by status (completed, in progress, blocked, etc.)
 - Click to expand and see individual tasks
 - Link to open the full Tasks view
 
