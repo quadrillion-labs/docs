@@ -1,0 +1,219 @@
+---
+title: Tutorial
+description: "A step-by-step walkthrough of a complete Qualia research session."
+---
+
+This tutorial walks you through a complete research session in Qualia, demonstrating how to leverage agents, tasks, and the knowledge system to run a comprehensive benchmark study. By the end, you'll see how Qualia orchestrates parallel work and captures knowledge automatically.
+
+## What you'll build
+
+You'll create a benchmark suite for the **Rosenbrock function** — a classic optimization test problem. Along the way, you'll:
+
+- Create visualizations that explain why Rosenbrock is challenging
+- Build a benchmark harness comparing multiple optimization strategies
+- Run experiments across different configurations
+- Generate recommendations backed by evidence
+
+## Starting a fresh project
+
+When you open a new project in Qualia, you'll see an empty workspace. The **Files** sidebar on the left shows your project files, and the **Activity bar** on the far left gives you access to different views.
+
+<Frame>
+  <img src="/images/tutorial/01.png" alt="Empty Qualia workspace" />
+</Frame>
+
+Click the **Agents** icon in the activity bar (the chat icon with lines) to open the Agents sidebar. This is where you'll see all your active agents and create new ones.
+
+<Frame>
+  <img src="/images/tutorial/02.png" alt="Agents sidebar with New Agent button" />
+</Frame>
+
+## Starting your first conversation
+
+Click **+ New Agent** to create your first agent. A chat panel opens on the right, and an empty notebook appears in the main editor.
+
+Type a prompt describing what you want to accomplish:
+
+> *"Create a notebook with some interesting visualizations of the Rosenbrock function that highlight why it is such a tough optimization problem."*
+
+<Frame>
+  <img src="/images/tutorial/03.png" alt="First prompt with agent creating notebook" />
+</Frame>
+
+As the agent works, you'll see status updates like "Inspecting notebook outline" and "Thought 1 time".
+
+## Watching the agent work
+
+The agent writes code cells, executes them, and produces visualizations — all visible in the notebook. The chat panel shows its reasoning and progress.
+
+<Frame>
+  <img src="/images/tutorial/04.png" alt="Completed visualizations with plots" />
+</Frame>
+
+Notice several things:
+
+1. **The notebook** now contains markdown explanations and code cells with executed outputs
+2. **The chat panel** shows the agent's thinking and a summary of what it created
+3. **The Tasks section** shows the first task is complete (green checkmark)
+
+## Expanding into a research plan
+
+Once the visualization task completes, send a follow-up:
+
+> *"Create a plan to benchmark numerous optimization strategies on a suite of Rosenbrock functions"*
+
+<Frame>
+  <img src="/images/tutorial/05.png" alt="Agent creating benchmark plan" />
+</Frame>
+
+The agent doesn't just respond — it creates a structured **task graph**. Watch the Tasks sidebar on the left populate with multiple tasks:
+
+<Frame>
+  <img src="/images/tutorial/06.png" alt="Task sidebar with multiple tasks" />
+</Frame>
+
+Each task has:
+
+- A title and objective
+- A status (Planned, In Progress, Completed)
+- Dependencies on other tasks
+- An assigned agent
+
+## Viewing the Tasks panel
+
+Click the **Tasks** icon in the activity bar to see the full task view. The default **Gantt view** shows tasks as bars in a timeline grouped by agent, with optional dependency lines connecting them.
+
+<Frame>
+  <img src="/images/tutorial/07.png" alt="Gantt view of tasks" />
+</Frame>
+
+Hover on any task to see its details:
+
+<Frame>
+  <img src="/images/tutorial/08.png" alt="Task detail popup" />
+</Frame>
+
+The popup shows, among other information:
+
+- **Objective**: What the task should accomplish
+- **Blocked by**: Upstream tasks that must complete first
+- **Blocks**: Downstream tasks waiting on this one
+- **Assigned to**: Which agent is working on it
+- **Notes**: Additional information agents have provided about this task
+
+## The DAG view
+
+Toggle to the **DAG view** using the icon in the top right of the Tasks panel. This shows the task dependency graph visually:
+
+<Frame>
+  <img src="/images/tutorial/09.png" alt="DAG view of task dependencies" />
+</Frame>
+
+The DAG makes the workflow structure clear:
+
+- **Completed tasks** show at the top (green)
+- **In-progress tasks** are yellow
+- **Planned tasks** waiting on dependencies are gray
+- **Lines** show the dependency flow
+
+As agents complete tasks, the graph updates in real-time. Tasks automatically transition from "Planned" to "In Progress" to "Completed" as agents work.
+
+<Frame>
+  <img src="/images/tutorial/10.png" alt="DAG view with progress" />
+</Frame>
+
+## The Knowledge System
+
+As agents complete tasks, they capture **claims** — durable facts tied to evidence. Click the **Knowledge** icon in the activity bar to see claims accumulating.
+
+<Frame>
+  <img src="/images/tutorial/11.png" alt="Knowledge sidebar with claims" />
+</Frame>
+
+Each claim card shows:
+
+- The claim content (what was learned or concluded)
+- **Sources** linking to notebooks, cells, or other claims
+- **Task** that produced the claim
+- **Type**: notebook-captured or synthesized
+
+Click the **Knowledge tab** in the top bar to open the full Knowledge view:
+
+<Frame>
+  <img src="/images/tutorial/12.png" alt="Full Knowledge view" />
+</Frame>
+
+## Filtering claims
+
+Use the filters at the top to focus on specific claim types:
+
+**Synthesized claims** are conclusions written by agents, combining multiple sources:
+
+<Frame>
+  <img src="/images/tutorial/13.png" alt="Synthesized claims filter" />
+</Frame>
+
+**Notebook-captured claims** are automatically captured when code runs and produces results:
+
+<Frame>
+  <img src="/images/tutorial/14.png" alt="Notebook-captured claims filter" />
+</Frame>
+
+## Working with multiple agents
+
+As the benchmark runs, multiple agents work in parallel on different tasks. Each agent has its own chat, accessible from the Agents sidebar.
+
+<Frame>
+  <img src="/images/tutorial/15.png" alt="Different agent chat" />
+</Frame>
+
+Notice the **FROM AGENT** badges in the chat — these show when agents communicate results to each other.
+
+## Claim validation
+
+As your project evolves, claims can be validated against their sources. Successfully validated claims show a green "Validation succeeded" banner:
+
+<Frame>
+  <img src="/images/tutorial/16.png" alt="Validated claims" />
+</Frame>
+
+This ensures your knowledge base stays accurate even as notebooks and data change.
+
+## Adding more tasks
+
+At any point, click **+ New tasks** in the Tasks view to add more work:
+
+<Frame>
+  <img src="/images/tutorial/17.png" alt="New Tasks dialog" />
+</Frame>
+
+Describe what you want in natural language. Qualia creates new tasks, infers dependencies, and assigns agents automatically.
+
+## The final result
+
+Once all tasks complete, you have a comprehensive research artifact. In this example, the final notebook includes:
+
+- **Comparison visualizations** of optimizer performance
+- **Results tables** with metrics across configurations
+- **Recommendations** backed by evidence
+
+<Frame>
+  <img src="/images/tutorial/18.png" alt="Final comparison notebook" />
+</Frame>
+
+The Knowledge system retains all claims, letting you trace any recommendation back through the evidence chain to raw data.
+
+## Key takeaways
+
+1. **Start with a simple prompt** — Qualia expands it into a structured research plan
+2. **Tasks organize work** — Dependencies ensure correct execution order
+3. **Agents work in parallel** — Multiple experiments run simultaneously
+4. **Knowledge accumulates** — Every task produces documented, validated claims
+5. **Everything is traceable** — Click any claim to navigate to its sources
+
+## Next steps
+
+- [Tasks](/tasks) — Deep dive into the task system
+- [Knowledge System](/knowledge) — Learn about claims and validation
+- [Agents](/agents) — Running parallel experiments
+- [Autonomous Mode](/autonomous-mode) — Extended independent work
